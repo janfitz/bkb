@@ -1,86 +1,3 @@
-*For English 'readme' scroll down*
-
-### Программа для управления компьютером при помощи глаз и одного из трекеров движения глаз: Tobii REX, Tobii EyeX, Tobii Eye Tracker 4C (только 32-битная версия программы: bkb32*.exe), The Eye Tribe, Gazepoint GP3. Также поддерживается управление поворотом головы вместе с любым устройством, способным перемещать курсор мыши по экрану (например, с аэромышью).
-
-Подробнее можно прочитать здесь:  
-
-http://habrahabr.ru/post/208108/ - про работу с трекерами движения глаз
-
-https://habr.com/post/423807/ - режим таблицы (для детей) + подробно про установку
-
-http://habrahabr.ru/post/213715/ - про работу с аэромышью без рук
-
-
-### Установка:
-Просто разархивируйте bkb32c-Russian.zip в любой каталог на вашем компьютере.
-Для запуска программы необходимо, чтобы на компьютере был установлен Microsoft Visual C++ Redistributable for Visual Studio 2012 Update 4. Его можно взять вот здесь:
-http://www.microsoft.com/ru-ru/download/details.aspx?id=30679
-Если он у вас не установлен, то при запуске программы вы увидите сообщение о том, что не найден файл msvcrt110.dll
-
-
-### Использование с Tobii Rex или Tobii EyeX или Tobii Eye Tracker 4C
-Для работы программы с **Tobii Rex** или **Tobii EyeX** или **Tobii Eye Tracker 4C** необходим файл "TobiiGazeCore32.dll" версии не ниже 4.1.3.938, который нужно скопировать в рабочий каталог программы.
-
-В настоящий момент компания Tobii закрыла возможность скачивания Gaze SDK, содержащего этот файл. Но вы можете найти его, если установите "Tobii EyeX 2.1.1" ( http://files.update.tech.tobii.com/engine/Tobii.EyeX_2.1.1.293.exe ), как 
-указано в документе https://help.tobii.com/hc/en-us/articles/213546185-Attention-all-REX-users.
-
-~~Gaze SDK 4.0 можно скачать вот здесь: http://developer.tobii.com/downloads/ (требуется регистрация)
-Ищите файл с именем TobiiGazeSdk-CApi-4.0.X.XXX-Win32, где X-цифры текущей версии.~~
-
-Перед началом работы откалибруйте устройство.
-
-### Использование с The Eye Tribe
-Должна быть запущена программа Eye Tribe Server. Также нужно откалибровать устройство при помощи программы Eye Tribe UI перед запуском программы bkb32d.exe
-
-### Использование с Gazepoint GP3
-Должна быть запущена программа Gazepoint Control.
-
-### Звук нажатия клавиш
-При нажатии клавиш слышится звук. Если он вас не устраивает, положите в рабочий каталог программы WAV-файл со звуком, который вам нравится, и назовите его "click.wav".
-
-### Общие принципы работы
-
-После запуска программы и выбора устройства для работы, с правой стороны экрана появляется панель инструментов. Если вы используете трекер движения глаз, то также появляется прозрачное окно с курсором, который следует за вашим взглядом. При использовании аэромыши управляйте обычным курсором. Для выбора режима задержите взгляд на одном из пунктов меню панели инструментов.
-
-Посмотреть, как пользоваться программой можно на этих видео:
-
-http://youtu.be/O68C4d2SNC8
-
-https://youtu.be/9q_z0pmnY74
-
-http://youtu.be/rqcN9IZ39_4
-
-
-### Известные проблемы:
-- нет простого способа выйти из программы, надо закрывать окна в панели задач
-- не работает в полноэкранных приложениях
-- не работает в Metro-интерфейсе Windows 8/8.1, нужно пользоваться старорежимным рабочим столом
-- некоторые программы (созданные до эпохи unicode) неправильно воспринимают символы на русской клавиатуре
-- drag-and-drop не всегда корректно работает, в частности, не перетаскивает иконки на рабочем столе на некоторых машинах
-- сбивается положение окон после logout/switch user
-ну и ещё куча по мелочи...
-
-### Перевод на другие языки:
-Вы можете легко перевести интерфейс программы на другой язык, если возьмёте уже переведённую версию (Английскую) и отредактируете файлы messages.bkb и keyboard.bkb (это обычные текстовые файлы с unicode-кодировкой).
-Но формат и содержимое файлов может измениться в будущих версиях!
-
-### Компилирование исходников
-
-Нужно использовать Microsoft Visual Studio 2012 (предпочтительно с последним обновлением).
-Это объясняется тем, что так были скомпилированы библиотеки Tobii Gaze SDK 4.0, которые используются в программе.
-В свойствах проекта установите поддержку unicode
-
-~~Включаемые каталоги должны иметь в своем составе каталог "include" из Tobii Gaze SDK 4.0.
-Gaze SDK 4.0 можно скачать вот здесь: http://developer.tobii.com/downloads/ (требуется регистрация)
-Ищите файл с именем TobiiGazeSdk-CApi-4.0.X.XXX-Win32, где X-цифры текущей версии.~~
-
-Никакие библиотеки из Tobii Gaze SDK при компиляции не требуются, а вот стандартные библиотеки  
-Windows нужны: Ws2_32.lib, winmm.lib,Msimg32.lib
-
-Проект должен динамически подключать библиотеку MSVCRT110.dll, статическая линковка будет  конфликтовать с библиотеками Tobii Gaze SDK!
-
-## in English
-
 bkb is a program to control keyboard/mouse with eyes. It supports the following eye trackers: TobiiREX, Tobii EyeX, Tobii Eye Tracker 4C (32-bit version of the program only: bkb32*.exe), The Eye Trybe, Gazepoint GP3. It also supports controlling keyboard/mouse by turning the head along with any device that can move a mouse cursor (e.g. an airmouse).
 
 ### Installation:
@@ -98,9 +15,6 @@ You will need "TobiiGazeCore32.dll" version 4.1.3.938 or newer to be copied to t
 
 At the moment Tobii has discontinued the ability to download Gaze SDK, containing the file. But you can get it if you install "Tobii EyeX 2.1.1" ( http://files.update.tech.tobii.com/engine/Tobii.EyeX_2.1.1.293.exe ), as 
 stated in the document: https://help.tobii.com/hc/en-us/articles/213546185-Attention-all-REX-users.
-
-~~Alternatively, Gaze SDK 4.0 can be downloaded from: http://developer.tobii.com/downloads/ (registration required).
-Look for the "TobiiGazeSdk-CApi-4.0.X.XXX-Win32" file, where X-current release numbers.~~
 
 Calibrate the device before starting the program.
 
