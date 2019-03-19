@@ -1,3 +1,55 @@
+## Česky / Czech
+
+`bkb` je software pro ovládání myši/klávesnice díky pohybu očí pomocí jednoho z následujích eyetrackerů: TobiiREX, Tobii EyeX, Tobii Eye Tracker 4C (pouze 32-bitová kopie softwaru bkb32*.exe), The Eye Trybe a Gazepoint GP3. Zároveň je možné ovládat myš/klávesnici pomocí pohybů hlavy pomocí příslušných polohovacích zařízení (například airmouse).
+
+### Instalace
+
+Stačí pouze rozbalit příslušnou jazykovou verzi fostwaru zw složky `exe`. Je nezbytné, aby pracovní složba obsahovala všechny přiložené soubory. V opačném případě nebude správně nastaveno lokalizační prostředí a použije se jako výchozí jazyk ruština.
+
+K běhu programu je nezybtná instalace `Microsoft Visual C++ pro Visual Studio 2012 Update 4`. K dispozici ke stažení zde: http://www.microsoft.com/en-us/download/details.aspx?id=30679
+
+Pokud nebude toto prostředí správně nainstalováno, dojde k ukončení programu s následující chybou: `You will need "TobiiGazeCore32.dll" version 4.1.3.938 or newer to be copied to the working directory of the program.`
+
+Tobii v tuto chvíli již neumožňuje stahování `Gaze SDK`, je však možné získat příslušné soubory po stažení a instalaci následujícího souboru: http://files.update.tech.tobii.com/engine/Tobii.EyeX_2.1.1.293.exe
+
+Před samotným spuštěním softwaru je nutné zkalibrovat zařízení pro sledování očí v příslušném programu dodávaném se zařízením.
+
+### Použití s EyeTrive eyetrackerem
+
+Je nezbytné, aby před spuštěním programu správně pracoval `EyeTribe server` a je třeba zkalibrovat zařízení.
+
+### Použití s Gazepoint GP3 eyetracker
+
+Před spuštěním je třeba spustit `Gazepoint Control`
+
+### Zvuk klávesnice
+
+po stisknutí tlačítka klávesnice dojde k přehrání příslušného zvuku. Tuto funkcionalitu je možné zakázat odstraněním souboru `click.wav` či jeho nahrazením za jiný zvukový soubor stejného formátu.
+
+### Základní funcionalita
+
+Po stuštění programu je třeba vybrat zvolené zařízení pro sledování očí, toho lze docílit fixací tlačítka s příslušným zařízením. Pokud je připojeno zařízení typu airmouse či podobné, je použito jako primární zařézení.
+
+Na následujích videích je vidět základní funcionalita softwaru:
+
+http://youtu.be/O68C4d2SNC8
+
+(anglické titulky)
+
+https://youtu.be/9gersivzkUc
+
+http://youtu.be/rqcN9IZ39_4
+
+### Známé problémy
+
+- Nelze snadno vypnout program. Je třeba vynutit ukončení pomocí nástrojů Windows či pomocí klávesové zkratky
+- 
+
+
+
+
+## English / Anglicky
+
 bkb is a program to control keyboard/mouse with eyes. It supports the following eye trackers: TobiiREX, Tobii EyeX, Tobii Eye Tracker 4C (32-bit version of the program only: bkb32*.exe), The Eye Trybe, Gazepoint GP3. It also supports controlling keyboard/mouse by turning the head along with any device that can move a mouse cursor (e.g. an airmouse).
 
 ### Installation:
@@ -49,9 +101,6 @@ http://youtu.be/rqcN9IZ39_4
 - drag-and-drop doesn't work in some cases, for example you cannot move desktop icons on some PCs
 - windows moved and doesn't work properly after logout/switch user
 - and many more small things....
-
-### Translate to other languages:
-One can easily translate the User Interface and modify a keyboard. Just edit the "messages.bkb" and "keyboard.bkb" files. These are text unicode files. But (!) the file format and contents can be changed in future!!!
 
 ### Compiling the source codes
 As for now, you have to use Microsoft Visual Studio 2012 (latest update preferred). This is due to the fact that the libraries used (from the Tobii Gaze SDK 4.0) are compiled the same way.
