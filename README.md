@@ -1,10 +1,12 @@
+**Fork form [@MastaLomastar](https://github.com/MastaLomaster/bkb) repository - all credits to him** For English scroll down.
+
 ## Česky / Czech
 
-`bkb` je software pro ovládání myši/klávesnice díky pohybu očí pomocí jednoho z následujích eyetrackerů: TobiiREX, Tobii EyeX, Tobii Eye Tracker 4C (pouze 32-bitová kopie softwaru bkb32*.exe), The Eye Trybe a Gazepoint GP3. Zároveň je možné ovládat myš/klávesnici pomocí pohybů hlavy pomocí příslušných polohovacích zařízení (například airmouse).
+`bkb` je software pro ovládání myši/klávesnice díky pohybu očí pomocí jednoho z následujích eyetrackerů: TobiiREX, Tobii EyeX, Tobii Eye Tracker 4C (pouze 32-bitová kopie softwaru bkb32*.exe), The EyeTribe a Gazepoint GP3. Zároveň je možné ovládat myš/klávesnici pomocí pohybů hlavy pomocí příslušných polohovacích zařízení (například airmouse).
 
 ### Instalace
 
-Stačí pouze rozbalit příslušnou jazykovou verzi fostwaru zw složky `exe`. Je nezbytné, aby pracovní složba obsahovala všechny přiložené soubory. V opačném případě nebude správně nastaveno lokalizační prostředí a použije se jako výchozí jazyk ruština.
+Stačí pouze rozbalit příslušnou jazykovou verzi softwaru ze složky `exe`. Je nezbytné, aby pracovní složba obsahovala všechny přiložené soubory. V opačném případě nebude správně nastaveno lokalizační prostředí a použije se jako výchozí jazyk ruština.
 
 K běhu programu je nezybtná instalace `Microsoft Visual C++ pro Visual Studio 2012 Update 4`. K dispozici ke stažení zde: http://www.microsoft.com/en-us/download/details.aspx?id=30679
 
@@ -12,25 +14,25 @@ Pokud nebude toto prostředí správně nainstalováno, dojde k ukončení progr
 
 Tobii v tuto chvíli již neumožňuje stahování `Gaze SDK`, je však možné získat příslušné soubory po stažení a instalaci následujícího souboru: http://files.update.tech.tobii.com/engine/Tobii.EyeX_2.1.1.293.exe
 
-Před samotným spuštěním softwaru je nutné zkalibrovat zařízení pro sledování očí v příslušném programu dodávaném se zařízením.
+Před samotným spuštěním softwaru je nutné kalibrovat zařízení pro sledování očí v příslušném programu dodávaném se zařízením.
 
-### Použití s EyeTrive eyetrackerem
+### Použití s EyeTribe eyetrackerem
 
-Je nezbytné, aby před spuštěním programu správně pracoval `EyeTribe server` a je třeba zkalibrovat zařízení.
+Je nezbytné, aby před spuštěním programu správně pracoval `EyeTribe server` a je třeba kalibrovat zařízení.
 
-### Použití s Gazepoint GP3 eyetracker
+### Použití s Gazepoint GP3 eyetrackerem
 
-Před spuštěním je třeba spustit `Gazepoint Control`
+Před spuštěním je třeba spustit `Gazepoint Control`.
 
 ### Zvuk klávesnice
 
 po stisknutí tlačítka klávesnice dojde k přehrání příslušného zvuku. Tuto funkcionalitu je možné zakázat odstraněním souboru `click.wav` či jeho nahrazením za jiný zvukový soubor stejného formátu.
 
-### Základní funcionalita
+### Základní funkcionalita
 
-Po stuštění programu je třeba vybrat zvolené zařízení pro sledování očí, toho lze docílit fixací tlačítka s příslušným zařízením. Pokud je připojeno zařízení typu airmouse či podobné, je použito jako primární zařézení.
+Po spuštění programu je třeba vybrat zvolené zařízení pro sledování očí, toho lze docílit fixací tlačítka s příslušným zařízením. Pokud je připojeno zařízení typu airmouse či podobné, je použito jako primární zařízení.
 
-Na následujích videích je vidět základní funcionalita softwaru:
+Na následujích videích je možné vidět základní funcionalitu softwaru:
 
 http://youtu.be/O68C4d2SNC8
 
@@ -42,11 +44,20 @@ http://youtu.be/rqcN9IZ39_4
 
 ### Známé problémy
 
-- Nelze snadno vypnout program. Je třeba vynutit ukončení pomocí nástrojů Windows či pomocí klávesové zkratky
-- 
+* Program nelze snadno vypnout. Je třeba vynutit ukončení pomocí nástrojů Windows či pomocí klávesové zkratky,
+* zatím nefunguje s aplikacemi v režimu celé obrazovky,
+* zatím nefunguje s rozhraním Metro na Windows 8/8.1, je třeba použít starší rozhraní,
+* v některých případech nemusí fungovat možnost drag-and-drop,
+* nefunguje při odhlášení uživatele z Windows,
+* a mnoho dalších menších problémů.
 
+### Zkompilování zdrojového kódu
 
+Vždy je třeba použít Microsoft Visual Studio 2012 (nejlépe poslední verze), jelikož většina použiváných knihoven třetích stran je kompilována stejně.
 
+V vlastnostech projektu je třeba povolit kódování unicode. V průběhu kompilace nemusí být přiloženy knihovny Tobii Gaze SDK. Je třeba mít k dispozici pouze standardní Windows knihovny Ws2_32.lib, winmm.lib a Msimg32.lib.
+
+Projekt musí dynamicky linkován s MSVCRT110.dll, pokud by bylo použito statické linkování, dojede ke konfliktu s knihovnou Tobii Gaze SDK.
 
 ## English / Anglicky
 
@@ -106,10 +117,6 @@ http://youtu.be/rqcN9IZ39_4
 As for now, you have to use Microsoft Visual Studio 2012 (latest update preferred). This is due to the fact that the libraries used (from the Tobii Gaze SDK 4.0) are compiled the same way.
 
 In the project properties enable unicode support
-
-~~Include directories must contain the "include" one from the Tobii Gaze SDK 4.0.
-Gaze SDK 4.0 can be downloaded from: http://developer.tobii.com/downloads/ (registration required).
-Look for the "TobiiGazeSdk-CApi-4.0.X.XXX-Win32" file, where X-current release numbers.~~
 
 No Tobii Gaze SDK libraries needed during the compilation/build. 
 
